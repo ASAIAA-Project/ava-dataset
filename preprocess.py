@@ -21,7 +21,7 @@ def pp():
             votes = sum(data[1:11])
             ttl = sum([(w+1)*v for w, v in enumerate(data[1:11])])
             score = ttl/votes
-            data_pp = [data[0]] + [d/votes for d in data[1:11]] + [score]
+            data_pp = [i] + [data[0]] + [d/votes for d in data[1:11]] + [score]
             if i in train_idx:
                 train_data.append(data_pp)
             if i in test_idx:
@@ -50,4 +50,5 @@ def pp_check():
         print(data[1])
 
 if __name__ == "__main__":
+    pp()
     pp_check()

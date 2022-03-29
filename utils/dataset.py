@@ -27,11 +27,11 @@ class AVADataset(data.Dataset):
         return len(self.annotations)
 
     def __getitem__(self, idx):
-        img_name = os.path.join(self.root_dir, f'{int(self.annotations[idx][0])}.jpg')
+        img_name = os.path.join(self.root_dir, f'{int(self.annotations[idx][1])}.jpg')
         image = Image.open(img_name).convert('RGB')
-        annotations = self.annotations[idx][1:11]
+        annotations = self.annotations[idx][2:12]
         annotations = annotations.astype('float').reshape(-1, 1)
-        score = self.annotations[idx][11]
+        score = self.annotations[idx][12]
         sample = {
             'img_id': img_name,
             'image': image,
